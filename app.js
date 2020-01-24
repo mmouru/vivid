@@ -1,12 +1,12 @@
 const methodOverride = require("method-override"),
 	  LocalStrategy  = require("passport-local"),
-	  Campground     = require("./models/campground"),
 	  bodyParser     = require("body-parser"),
 	  passport       = require("passport"), 
 	  flash          = require("connect-flash"),
 	  mongoose       = require("mongoose"),
 	  express        = require("express"),
       app            = express(),
+	  Picture        = require("./models/picture"),
 	  Comment        = require("./models/comment"),
 	  User           = require("./models/user");
 
