@@ -3,8 +3,44 @@ body {
 	background: -webkit-linear-gradient(to left, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to left, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	margin-top: 70px;
+	font-family: 'Roboto', sans-serif;
 	
 }
+
+.thumbnail {
+	background-color: #1e1c1c;
+	border: none;
+}
+
+.fa-heart:before {
+	color:white;
+}
+
+#shadow {
+  box-shadow: 7px 7px 20px #000000;
+}
+
+a {
+	color: #d1d9df;
+}
+.well {
+	background-color: #1e1c1c;
+	border: none;
+}
+.caption-full {
+	margin-left: 10px;
+}
+hr {
+	border-top: 1px solid #4f4f4f;
+}
+#center {
+	display:flex;
+	justify-content: center;
+}
+.text-light {
+	color: #e1e0e0;
+}
+
 h1 {
 	color: white;
 	text-align: center;
@@ -16,15 +52,44 @@ h1 {
 	opacity: 0.8;
 }
 
+#footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 25px;   /* Height of the footer */
+   background: #232526;
+}
+.navbar-brand {
+	padding-top: 15px;
+}
+.navbar-right .logs{
+	font-size: 17px;
+	margin-top: 0px;
+}
+.navbar-left a {
+	font-size: 20px;
+}
+
+#search {
+	font-size: 20px;
+}
 #thrash {
 	padding: 5px;
 	color: #A00103;
+}
+
+#wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .fabutton {
   background: none;
   padding: 0px;
   border: none;
+  margin-right: 7px;
+  margin-bottom: 10px;
+
 }
 
 #logo {

@@ -2,15 +2,23 @@
 	
 	<div class="container">
 		<h1 id="user" class="text-center display-3">
+			<% if(currentUser && currentUser._id.equals(id)) { %>
+			Your profile
+			<% } else { %>
 			<%= user %>'s profile
+			<% } %>
 		</h1>
 		<%if(currentUser && currentUser._id.equals(id)) { %>
-		<a href="/<%=user%>/new"><button class="btn btn-lg-6 btn-sm-4 btn-primary">Add new picture</button></a>
-	
+		<div class="container">
+			<div class="text-center">
+				<a href="/<%=user%>/new"><button class="btn btn-lg-6 btn-sm-4 btn-primary" id="wrapper">Add new picture</button></a>
+			</div>
+		</div>
 		<% } %>
 		<div class="row">
 			<% pictures.forEach(function(picture){ %>
-				<div class="square bg" style="background-image: url(<%=picture.image%>)">
+			<a href="<%=user%>/<%=picture._id%>">
+				<div id="shadow" class="square bg" style="background-image: url(<%=picture.image%>)">
    					<div class="content">
         				<div class="table">
 							<%if(currentUser && currentUser._id.equals(id)) { %>
@@ -25,6 +33,7 @@
         				</div>
    					</div>
 				</div>
+			</a>
 			<% }) %>
 		</div>
 	</div>

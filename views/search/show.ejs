@@ -1,7 +1,7 @@
-<%- include("partials/header") %>
+<%- include("../partials/header") %>
 
 <h1 class="headh1">
-	Latest posts from users
+	Results for: <%=searchTerm%>
 </h1>
 <div class="container bg-dark">
 	<div class="row">
@@ -11,7 +11,7 @@
 					<a href="<%= picture.author.username%>/<%=picture._id%>">
 					<img src="<%=picture.image %>"></a>
 					<div class="caption-full">
-						<h4 class="text-light text-center"><%=picture.name%></h4>
+						<h4 class="text-center"><a href="<%=picture.author.username%>/<%=picture._id%>"><%=picture.name%></a></h4>
 						<em class="text-light text-center">Submitted by <a class="text-light" href="/<%=picture.author.username%>"><%= picture.author.username %></a></em>
 					</div>
 				</div>
@@ -21,4 +21,4 @@
 </div>
 
 
-<%- include("partials/footer") %>
+<%- include("../partials/footer") %>

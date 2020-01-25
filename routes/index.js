@@ -58,5 +58,23 @@ router.get("/logout", (req, res) => {
 	res.redirect("/");
 });
 
+// load page for search
+router.get("/search", (req, res) => {
+	res.render("search");
+});
+
+// search logic for picture names from DB
+router.post("/", (req, res) => {
+	var searchTerm = req.body.search;
+	Picture.find({ name: { $regex: searchTerm, $options: 'i'}}, (err, foundPictures) => {
+		if(err || foundPictures.length == 0){
+			req.flash("error", "No pictures found with: " + searchTerm);
+			res.redirect("/");
+		} else {
+			res.render("search/show", {pictures: foundPictures, searchTerm: searchTerm});
+		}
+	})
+});
+
 	
 module.exports = router;

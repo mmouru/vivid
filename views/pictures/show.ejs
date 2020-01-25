@@ -1,0 +1,47 @@
+<%- include("../partials/header")%>
+<div class="container">
+	<div class="row d-flex justify-content-center">
+	<div class="col-md-9 d-flex justify-content-center">
+		<div class="thumbnail">
+			<img class="img-responsive" src="<%= picture.image %>">
+				<div class="caption-full">
+					<form action="/<%=user.username%>/<%=picture._id%>/like?_method=PUT" method="POST">
+						<button class="pull-right fabutton"><i class="fa fa-heart fa-2x bg-light" aria-hidden="true"></i></button>
+					</form>
+					<h4><a><%=picture.name%></a></h4>
+					<p class="text-light"><%= picture.description %></p>
+					<p>
+						<em class="text-light">Submitted By <a href="/<%=user.username%>/<%=picture._id%>"><%= picture.author.username %></a></em>
+					</p>
+					<% if(currentUser && picture.author.id.equals(currentUser._id)){ %>
+					<form class="delete" action="/<%=picture._id%>?_method=DELETE" method="POST">
+					<button class="btn btn-danger">
+					Delete
+				    </button>
+				</form>
+			<% } %>
+	 	</div>
+	</div>
+		<div class="well">
+				<div class="text-right">
+					<a class="btn btn-success" href="<%=picture._id%>/newcomment">Add New Comment</a>
+				</div>
+				<hr>
+				<% picture.comments.forEach(function(comment){ %>
+					<div class="row">
+						<div class="col-md-12">
+							<strong class="text-light"><%= comment.author.username %></strong>
+							<p class="text-light"> - <%= comment.text %></p>
+							<% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+							<form class="delete" 
+								  action="/<%=user.username%>/<%=picture._id%>/<%=comment._id%>?_method=DELETE" method="POST">
+								<input type="submit" class="btn btn-xs btn-danger" value="Delete">
+							</form>
+							<% } %>
+						</div>
+					</div>	
+				<% }) %>
+			</div>
+		</div>
+</div>	
+<%- include("../partials/footer")%>

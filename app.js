@@ -48,7 +48,7 @@ app.use((req, res, next) => {
 // Refactor urls
 app.use("/", indexRoutes);
 app.use("/", userRoutes);
-app.use("/user/:user/pictures/", commentRoutes);
+app.use("/", commentRoutes);
 app.use("/", pictureRoutes);
 
 app.listen(process.env.PORT || 3000, process.env.IP, () => {

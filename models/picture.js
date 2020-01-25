@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const pictureSchema = new mongoose.Schema({
+	name: String,
 	image: String,
 	description: String,
 	author: {
@@ -16,7 +17,6 @@ const pictureSchema = new mongoose.Schema({
 			ref: "Comment"
 		}
 	],
-	likes: Number
 });
 
 module.exports = mongoose.model("Picture", pictureSchema);
