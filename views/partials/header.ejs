@@ -7,6 +7,12 @@
 		<link rel="stylesheet" href="/stylesheets/main.css">
 		<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<link rel="icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAA
+AAAAAAAAAAAAqKeXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREREREREQABEREREREQAAEREREREQAAARERER
+EQAAABEREREQAAAAEREREQAAAAAREREQAAAAABEREQAAAAAAEREQAAAAAAAREQAAAAAAABEQAAAA
+AAAAEQAAAAAAAAAQAAAAAAAAAAAAAAAAAAD//wAA//8AAMABAADAAwAAwAcAAMAPAADABwAAwAcA
+AMADAADAAwAAwAMAAMADAADABwAAzAcAAN8fAAD//wAA" type="image/x-icon" />
 	</head>
 	<body>
 		
@@ -24,7 +30,7 @@
 						<li><a class="logs" href="/login">Login</a></li>
 						<li><a class="logs" href="/register">Sign Up</a></li>
 					<% } else { %>
-						<li><a href="/<%=currentUser.username%>"><i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i></a></li>
+						<li><a class="logs" href="/<%=currentUser.username%>"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
 						<li><a class="logs" href="/logout">Log out</a></li>
 					<% } %>
 					</ul>
