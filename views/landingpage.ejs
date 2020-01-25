@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+
+<h1>
+	Hello there fellow fallow
+</h1>
+<div class="container">
+	<div class="row">
+		<% pictures.forEach(function(picture){ %>
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnail">
+					<img src="<%=picture.image %>">
+					<div class="caption">
+						<a href="/<%=picture.author.username%>"><h4><%= picture.author.username %></h4></a>
+					</div>
+				</div>
+			</div>
+		<% }); %>
+	  </div>
+</div>
+
+
+<%- include("partials/footer") %>

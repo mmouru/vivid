@@ -1,0 +1,32 @@
+<%- include("../partials/header") %>
+	
+	<div class="container">
+		<h1 id="user" class="text-center display-3">
+			<%= user %>'s profile
+		</h1>
+		<%if(currentUser && currentUser._id.equals(id)) { %>
+		<a href="/<%=user%>/new"><button class="btn btn-lg-6 btn-sm-4 btn-primary">Add new picture</button></a>
+	
+		<% } %>
+		<div class="row">
+			<% pictures.forEach(function(picture){ %>
+				<div class="square bg" style="background-image: url(<%=picture.image%>)">
+   					<div class="content">
+        				<div class="table">
+							<%if(currentUser && currentUser._id.equals(id)) { %>
+							<form class="delete" action="/<%=picture._id%>?_method=DELETE" method="POST">
+							<button type="submit" id="completed-task" class="fabutton">
+      						<i class="fa fa-trash-o fa-2x" id="thrash"></i>
+							</button>
+							</form>
+							<% } %>
+            				<div class="table-cell">
+           					</div>
+        				</div>
+   					</div>
+				</div>
+			<% }) %>
+		</div>
+	</div>
+	
+<%- include("../partials/footer") %>

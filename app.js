@@ -13,11 +13,12 @@ const methodOverride = require("method-override"),
 // Configuring refactored routes
 const commentRoutes  = require("./routes/comments"),
 	  indexRoutes    = require("./routes/index"),
-	  userRoutes     = require("./routes/users");
+	  userRoutes     = require("./routes/users"),
+	  pictureRoutes  = require("./routes/pictures");
 
 // Requiring all the routes
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost/yelp_camp_v7", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/vivid", { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -46,8 +47,9 @@ app.use((req, res, next) => {
 
 // Refactor urls
 app.use("/", indexRoutes);
-app.use("/:id", userRoutes);
-app.use("/:id", commentRoutes);
+app.use("/", userRoutes);
+app.use("/user/:user/pictures/", commentRoutes);
+app.use("/", pictureRoutes);
 
 app.listen(process.env.PORT || 3000, process.env.IP, () => {
 	console.log("Server has started!")
