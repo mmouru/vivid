@@ -30,7 +30,7 @@ router.post("/register", (req, res) => {
 		} else {
 			passport.authenticate("local")(req, res, () => {
 				req.flash("success", "Hello " + user.username + ", Welcome to use Vivid!");
-				res.redirect("back")
+				res.redirect("/" + req.body.username)
 			});
 		}
 	});

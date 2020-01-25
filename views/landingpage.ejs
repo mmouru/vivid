@@ -4,14 +4,15 @@
 	Latest posts from users
 </h1>
 <div class="container bg-dark">
-	<div class="row">
+	<div id="firstpage" class="row">
 		<% pictures.forEach(function(picture){ %>
 			<div class="col-md-3 col-sm-6">
 				<div class="thumbnail" id="shadow">
 					<a href="<%= picture.author.username%>/<%=picture._id%>">
 					<img src="<%=picture.image %>"></a>
 					<div class="caption-full">
-						<h4 class="text-light text-center"><%=picture.name%></h4>
+						<a href="<%= picture.author.username%>/<%=picture._id%>">
+							<h4 class="text-light text-center"><%=picture.name%></h4></a>
 						<em class="text-light text-center">Submitted by <a class="text-light" href="/<%=picture.author.username%>"><%= picture.author.username %></a></em>
 					</div>
 				</div>
@@ -21,4 +22,4 @@
 </div>
 
 
-<%- include("partials/footer") %>
+<%- include("partials/landingpagefooter") %>

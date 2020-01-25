@@ -1,17 +1,15 @@
 <%- include("../partials/header")%>
 <div class="container">
 	<div class="row d-flex justify-content-center">
-	<div class="col-md-9 d-flex justify-content-center">
+	<div class="col-md-12 d-flex justify-content-center">
 		<div class="thumbnail">
 			<img class="img-responsive" src="<%= picture.image %>">
 				<div class="caption-full">
-					<form action="/<%=user.username%>/<%=picture._id%>/like?_method=PUT" method="POST">
-						<button class="pull-right fabutton"><i class="fa fa-heart fa-2x bg-light" aria-hidden="true"></i></button>
-					</form>
+					<button class="pull-right fabutton"><i class="fa fa-heart fa-2x bg-light" aria-hidden="true"></i></button>
 					<h4><a><%=picture.name%></a></h4>
 					<p class="text-light"><%= picture.description %></p>
 					<p>
-						<em class="text-light">Submitted By <a href="/<%=user.username%>/<%=picture._id%>"><%= picture.author.username %></a></em>
+						<em class="text-light">Submitted By <a href="/<%=user.username%>"><%= picture.author.username %></a></em>
 					</p>
 					<% if(currentUser && picture.author.id.equals(currentUser._id)){ %>
 					<form class="delete" action="/<%=picture._id%>?_method=DELETE" method="POST">
