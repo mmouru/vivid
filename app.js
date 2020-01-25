@@ -18,7 +18,7 @@ const commentRoutes  = require("./routes/comments"),
 
 // Requiring all the routes
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://mmouruja19:12a77bbb6@cluster0-n6czm.mongodb.net/test?retryWrites=true&w=majority", { 
+mongoose.connect("", { 
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {
@@ -34,7 +34,7 @@ app.use(flash());
 
 // Configuring passport for secure connections
 app.use(require("express-session")({
-	secret: "Not really secret",
+	secret: "",
 	resave: false,
 	saveUninitialized: false
 }));
