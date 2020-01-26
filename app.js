@@ -5,7 +5,7 @@ const methodOverride = require("method-override"),
 	  flash          = require("connect-flash"),
 	  mongoose       = require("mongoose"),
 	  express        = require("express"),
-      app            = express(),
+          app            = express(),
 	  Picture        = require("./models/picture"),
 	  Comment        = require("./models/comment"),
 	  User           = require("./models/user");
@@ -18,7 +18,7 @@ const commentRoutes  = require("./routes/comments"),
 
 // Requiring all the routes
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://mmouruja19:12a77bbb6@cluster0-n6czm.mongodb.net/test?retryWrites=true&w=majority", { 
+mongoose.connect(process.env.DATABASEURL, { 
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {

@@ -31,6 +31,10 @@
 							<strong class="text-light"><%= comment.author.username %></strong>
 							<p class="text-light"> - <%= comment.text %></p>
 							<% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+							<a class="btn btn-xs btn-warning" 
+							   href="/<%=comment._id%>/edit">
+								Edit
+							</a>
 							<form class="delete" 
 								  action="/<%=user.username%>/<%=picture._id%>/<%=comment._id%>?_method=DELETE" method="POST">
 								<input type="submit" class="btn btn-xs btn-danger" value="Delete">

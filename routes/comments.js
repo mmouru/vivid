@@ -51,6 +51,30 @@ router.post("/:user/:id", middleware.isLoggedIn, (req, res) => {
 	});
 });
 
+// show user comment edit page to edit comment
+router.get("/:comment_id/edit", middleware.checkCommentOwnership, (req, res) => {
+	Comment.findById(req.params.comment_id, (err, foundComment) => {
+		if(err){
+			req.flash("error", "Something went wrong");
+			res.redirect("back");
+		} else {
+			res.render("comments/edit", {comment:foundComment});
+		}
+	});
+});
+
+// edit comment logic
+router.put("/:comment_id", middleware.checkCommentOwnership, (req, res) => {
+	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, (err, updatedComment) => {
+		if(err){
+			console.log(err);
+		} else {
+			req.flash("success", "Comment has been edited");
+			res.redirect("/");
+		}
+	});
+});
+
 // delete comment logic including commentownership check
 router.delete("/:user/:id/:comment_id", middleware.checkCommentOwnership, (req, res) => {
 	Comment.findByIdAndRemove(req.params.comment_id, (err) =>{
