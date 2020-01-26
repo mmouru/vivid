@@ -1,8 +1,3 @@
-
-# vivid
-
-<strong>About this project</strong>
-
 ### <h1> vivid </h1>
 
 #<strong>About this project</strong>
